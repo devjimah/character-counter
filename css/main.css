@@ -1,0 +1,228 @@
+/* importing fonts from assets folder  */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/DM_Sans/static/DMSans-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/DM_Sans/static/DMSans-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/DM_Sans/static/DMSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* declaration of CSS variables for light and dark themes */
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --primary-color: #6366f1;
+  --stats-font-color: #000000;
+}
+
+/* dark theme styles */
+body.dark-theme {
+  --bg-color: #1a1a2e;
+  --text-color: #f5f5f5;
+  --border-color: #a6a6c8;
+  --primary-color: #818cf8;
+}
+
+/* Universal styles for all elements */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: var(--bg-color);
+  background-image: url("../assets/images/bg-dark-theme.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+body.dark-theme {
+  background-image: url("../assets/images/bg-dark-theme.png");
+}
+
+.main-container {
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+header {
+  padding: 2rem 0.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrapper h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.theme-toggler {
+  background-color: #e5e2e2;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggler.dark {
+  background-color: #333;
+}
+
+.theme-toggler img {
+  width: 24px;
+  height: 24px;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin:  auto;
+}
+
+.character-counter {
+  border-radius: 16px;
+}
+.checkboxes {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem auto;
+}
+
+.character-counter h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#text-input {
+  width: 100%;
+  min-height: 200px;
+  background-color: var(--bg-color);
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: border-color 0.3s ease;
+}
+
+#text-input:focus {
+  outline: none;
+}
+
+.stats {
+  width: 100%;
+  display: flex;
+    justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.stat-item-1 {
+  height: 160px;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  background-color: #d3a0fa;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+.stat-item-2 {
+  height: 160px;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  background-color: #ff9f00;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+.stat-item-3 {
+  height: 160px;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  background-color: #fe8159;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat-item img {
+  width: 150px;
+  height: 150px;
+  padding: 0;
+  margin-left: 3rem;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--stats-font-color);
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--stats-font-color);
+}
+
+@media (max-width: 768px) {
+  .character-counter {
+    padding: 1.5rem;
+  }
+
+  .character-counter h1 {
+    font-size: 1.5rem;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
