@@ -1,10 +1,10 @@
 /* importing fonts from assets folder  */
 @font-face {
   font-family: "DM Sans";
-  src: url("../assets/fonts/DM_Sans/static/DMSans-Regular.ttf")
-    format("truetype");
+  src: url("../assets/fonts/DM_Sans/static/DMSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap; 
 }
 
 @font-face {
@@ -28,14 +28,13 @@
   --text-color: #333;
   --border-color: #e0e0e0;
   --stats-font-color: #000000;
-  --border-radius: 8px;
   --stat-purple: #d3a0fa;
   --stat-orange: #ff9f00;
   --stat-coral: #fe8159;
   --stat-image-scale: 1.4;
   --stat-image-offset: 4rem;
-  --toggle-bg: #e5e2e2; /* Add this */
-  --checkbox-bg: #ffffff; /* Add this */
+  --toggle-bg: #e5e2e2; 
+  --checkbox-bg: #ffffff; 
 }
 
 /* dark theme styles */
@@ -44,8 +43,8 @@ body.dark-theme {
   --text-color: #f5f5f5;
   --border-color: #a6a6c8;
   --stats-font-color: #000;
-  --toggle-bg: #2d2d44; /* Add this */
-  --checkbox-bg: #2d2d44; /* Add this */
+  --toggle-bg: #2d2d44; 
+  --checkbox-bg: #2d2d44; 
   background-image: url("../assets/images/bg-dark-theme.png");
 }
 
@@ -55,6 +54,9 @@ body.dark-theme {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease;
 }
 
 body {
@@ -65,7 +67,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--text-color);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease; 
 }
 
 .main-container {
@@ -130,6 +132,7 @@ nav {
 .character-counter {
   border-radius: 16px;
 }
+
 .checkboxes {
   display: flex;
   gap: 1rem;
@@ -176,7 +179,7 @@ nav {
 .stats {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr); 
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -193,7 +196,7 @@ nav {
 .stat-item img {
   width: 9.4rem;
   height: 150px;
-  scale: var(--stat-image-scale);
+  transform: scale(var(--stat-image-scale));
   margin-left: var(--stat-image-offset);
 }
 
@@ -220,7 +223,7 @@ nav {
 }
 
 .stat-value {
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
   color: var(--stats-font-color);
 }
@@ -258,11 +261,15 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  header {
-    padding: 1rem 1rem;
-  }
+  
+  
   .character-counter h1 {
     font-size: 2rem;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
 
   .stat-item img {
@@ -278,5 +285,19 @@ textarea {
   .checkboxes {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .character-counter h1 {
+    font-size: 1.5rem;
+  }
+  
+  .stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
   }
 }
