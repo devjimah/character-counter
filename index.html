@@ -19,8 +19,13 @@
     />
   </head>
   <body>
-    <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox" hidden />
-    
+    <input
+      type="checkbox"
+      id="theme-toggle"
+      class="theme-toggle-checkbox"
+      hidden
+    />
+
     <!-- header section with logo and theme toggle button -->
     <header>
       <nav>
@@ -31,7 +36,11 @@
             id="logo-img"
           />
         </div>
-        <label for="theme-toggle" class="theme-toggler" aria-label="Toggle dark mode">
+        <label
+          for="theme-toggle"
+          class="theme-toggler"
+          aria-label="Toggle dark mode"
+        >
           <img
             src="./assets/images/icon-moon.svg"
             alt=""
@@ -62,14 +71,14 @@
           <!-- checkboxes for excluding spaces and setting character limit -->
           <div class="checkboxes">
             <div class="options">
-            <label for="exclude-space">
-              <input type="checkbox" id="exclude-space" />
-              Exclude Spaces
-            </label>
-            <label for="character-limit">
-              <input type="checkbox" id="character-limit" />
-              Set Character Limit
-            </label>
+              <label for="exclude-space">
+                <input type="checkbox" id="exclude-space" />
+                Exclude Spaces
+              </label>
+              <label for="character-limit">
+                <input type="checkbox" id="character-limit" />
+                Set Character Limit
+              </label>
             </div>
             <div class="reading-time" aria-live="polite">
               <p>Approx. reading time: 0 minute</p>
@@ -83,7 +92,7 @@
               <p class="stat-value" id="char-count">00</p>
               <p class="stat-label">Total Characters</p>
             </div>
-              <!-- decorative image -->
+            <!-- decorative image -->
             <img
               src="./assets/images/pattern-character-count.svg"
               alt=""
@@ -123,10 +132,59 @@
           <p id="letter-density-message">
             No characters found. Start typing to see letter density.
           </p>
+          <div class="count-bars">
+            <!-- Letter density bars will be dynamically inserted here -->
+            <div id="bar-holder">
+              <label for="A">
+                <div class="count-bar">
+                  <p class="letter-label">E</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 16.6%"></div>
+                  </div>
+                  <p class="letter-percentage" id="percent-A">40(16.6%)</p>
+                </div>
+              </label>
+              <label for="A">
+                <div class="count-bar">
+                  <p class="letter-label">I</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 11.65%"></div>
+                  </div>
+                  <p class="letter-percentage" id="percent-A">29(11.65%)</p>
+                </div>
+              </label>
+              <label for="A">
+                <div class="count-bar">
+                  <p class="letter-label">T</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 11.24%"></div>
+                  </div>
+                  <p class="letter-percentage" id="percent-A">28(11.24%)</p>
+                </div>
+              </label>
+              <label for="A">
+                <div class="count-bar">
+                  <p class="letter-label">O</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 8.8%"></div>
+                  </div>
+                  <p class="letter-percentage" id="percent-A">22(8.8%)</p>
+                </div>
+              </label>
+              <label for="A">
+                <div class="count-bar">
+                  <p class="letter-label">N</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 8.4%"></div>
+                  </div>
+                  <p class="letter-percentage" id="percent-A">21(8.4%)</p>
+                </div>
+              </label>
+            </div>
+          </div>
         </div>
+        <p class="see-more">see more</p>
       </div>
     </main>
-
-    <!-- <script src="./js/script.js"></script> -->
   </body>
 </html>
