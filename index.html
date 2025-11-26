@@ -19,6 +19,8 @@
     />
   </head>
   <body>
+    <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox" hidden />
+    
     <!-- header section with logo and theme toggle button -->
     <header>
       <nav>
@@ -29,14 +31,14 @@
             id="logo-img"
           />
         </div>
-        <button class="theme-toggler" aria-label="Toggle dark mode">
+        <label for="theme-toggle" class="theme-toggler" aria-label="Toggle dark mode">
           <img
             src="./assets/images/icon-moon.svg"
             alt=""
             class="theme-icon"
             aria-hidden="true"
           />
-        </button>
+        </label>
       </nav>
     </header>
 
@@ -59,15 +61,18 @@
           ></textarea>
           <!-- checkboxes for excluding spaces and setting character limit -->
           <div class="checkboxes">
+            <div class="options">
             <label for="exclude-space">
               <input type="checkbox" id="exclude-space" />
               Exclude Spaces
             </label>
-            <div class="limit-group">
-              <label for="character-limit">
-                <input type="checkbox" id="character-limit" />
-                Set Character Limit
-              </label>
+            <label for="character-limit">
+              <input type="checkbox" id="character-limit" />
+              Set Character Limit
+            </label>
+            </div>
+            <div class="reading-time" aria-live="polite">
+              <p>Approx. reading time: 0 minute</p>
             </div>
           </div>
         </div>
@@ -122,7 +127,6 @@
       </div>
     </main>
 
-    <!-- script for handling theme toggle and character counting -->
-    <script src="./js/script.js"></script>
+    <!-- <script src="./js/script.js"></script> -->
   </body>
 </html>

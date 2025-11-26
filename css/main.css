@@ -1,10 +1,11 @@
 /* importing fonts from assets folder  */
 @font-face {
   font-family: "DM Sans";
-  src: url("../assets/fonts/DM_Sans/static/DMSans-Regular.ttf") format("truetype");
+  src: url("../assets/fonts/DM_Sans/static/DMSans-Regular.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap; 
+  font-display: swap;
 }
 
 @font-face {
@@ -33,19 +34,30 @@
   --stat-coral: #fe8159;
   --stat-image-scale: 1.4;
   --stat-image-offset: 4rem;
-  --toggle-bg: #e5e2e2; 
-  --checkbox-bg: #ffffff; 
+  --toggle-bg: #e5e2e2;
+  --checkbox-bg: #ffffff;
+  --bg-image: url("../assets/images/bg-light-theme.png");
+  --logo-image: url("../assets/images/logo-light-theme.svg");
+  --theme-icon: url("../assets/images/icon-moon.svg");
 }
 
-/* dark theme styles */
-body.dark-theme {
+/* dark theme styles - triggered by checkbox */
+#theme-toggle:checked ~ * {
   --bg-color: #1a1a2e;
-  --text-color: #f5f5f5;
+  --text-color: #fff;
   --border-color: #a6a6c8;
   --stats-font-color: #000;
-  --toggle-bg: #2d2d44; 
-  --checkbox-bg: #2d2d44; 
-  background-image: url("../assets/images/bg-dark-theme.png");
+  --toggle-bg: #2d2d44;
+  --checkbox-bg: #2d2d44;
+  color: var(--text-color);
+}
+
+#theme-toggle:checked ~ header .logo img {
+  content: url("../assets/images/logo-dark-theme.svg");
+}
+
+#theme-toggle:checked ~ header .theme-toggler img {
+  content: url("../assets/images/icon-sun.svg");
 }
 
 /* Universal styles for all elements */
@@ -54,9 +66,8 @@ body.dark-theme {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: background-color 0.3s ease, 
-              color 0.3s ease, 
-              border-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 body {
@@ -67,7 +78,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--text-color);
-  transition: background-color 0.3s ease, opacity 0.3s ease; 
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+#theme-toggle:checked ~ * {
+  background-image: url("../assets/images/bg-dark-theme.png");
 }
 
 .main-container {
@@ -76,12 +91,15 @@ body {
 }
 
 header {
-  padding: 2rem 0.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 nav {
+  padding: 2rem 0.5rem;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -119,11 +137,6 @@ nav {
   height: 1.5rem;
 }
 
-.theme-toggler:focus-visible {
-  outline: 2px solid var(--text-color);
-  outline-offset: 2px;
-}
-
 .wrapper {
   max-width: 1200px;
   margin: auto;
@@ -137,6 +150,7 @@ nav {
   display: flex;
   gap: 1rem;
   margin: 1rem auto;
+  justify-content: space-between;
 }
 
 .checkboxes label {
@@ -145,6 +159,10 @@ nav {
   gap: 0.5rem;
   cursor: pointer;
   font-size: 0.9rem;
+}
+.options {
+  display: flex;
+  gap: 1rem;
 }
 
 .checkboxes input[type="checkbox"] {
@@ -179,7 +197,7 @@ nav {
 .stats {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -261,12 +279,10 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  
-  
   .character-counter h1 {
     font-size: 2rem;
   }
-  
+
   .stats {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
@@ -292,12 +308,15 @@ textarea {
   .character-counter h1 {
     font-size: 1.5rem;
   }
-  
+
   .stats {
     grid-template-columns: 1fr;
   }
-  
+
   .stat-value {
     font-size: 2rem;
+  }
+  .options {
+    flex-direction: column;
   }
 }
