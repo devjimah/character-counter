@@ -1,69 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="./css/main.css">
-  
-  <title>Frontend Mentor | Character counter</title>
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
 
+    <title>Frontend Mentor | Character counter</title>
+    <meta
+      name="description"
+      content="Real-time character, word, and sentence counter with letter density analysis"
+    />
+  </head>
+  <body>
+    <!-- header section with logo and theme toggle button -->
+    <header>
+      <nav>
+        <div class="logo">
+          <img
+            src="./assets/images/logo-light-theme.svg"
+            alt="Character Counter Logo"
+            id="logo-img"
+          />
+        </div>
+        <button class="theme-toggler" aria-label="Toggle dark mode">
+          <img
+            src="./assets/images/icon-moon.svg"
+            alt=""
+            class="theme-icon"
+            aria-hidden="true"
+          />
+        </button>
+      </nav>
+    </header>
 
-<header>
-  <nav>
-    <div class="logo">
-      <img src="./assets/images/logo-light-theme.svg" alt="Character Counter Logo" id="logo-img">
-    </div>
-    <button class="theme-toggler" aria-label="Toggle dark mode">
-      <img src="./assets/images/icon-moon.svg" alt="" class="theme-icon">
-    </button>
-  </nav>
-</header>
+    <!-- main container that wraps the content of the webpage -->
 
-  <!-- main container that wraps the content of the webpage -->
+    <main class="main-container">
+      <!-- secondary wrapper for the character counter and stats -->
+      <div class="wrapper">
+        <div class="character-counter">
+          <!-- counter heading -->
+          <h1>Analyze your characters in real-time.</h1>
+          <!-- text area for user input -->
+          <textarea
+            id="text-input"
+            placeholder="Start typing to count characters...(or paste your text here)"
+            rows="5"
+            maxlength="5000"
+            aria-label="Text input for character counting"
+            spellcheck="true"
+          ></textarea>
+          <!-- checkboxes for excluding spaces and setting character limit -->
+          <div class="checkboxes">
+            <label for="exclude-space">
+              <input type="checkbox" id="exclude-space" />
+              Exclude Spaces
+            </label>
+            <div class="limit-group">
+              <label for="character-limit">
+                <input type="checkbox" id="character-limit" />
+                Set Character Limit
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- statistics section displaying character, word, and sentence counts -->
+        <div class="stats" aria-live="polite">
+          <div class="stat-item">
+            <div class="stat-content">
+              <p class="stat-value" id="char-count">00</p>
+              <p class="stat-label">Total Characters</p>
+            </div>
+              <!-- decorative image -->
+            <img
+              src="./assets/images/pattern-character-count.svg"
+              alt=""
+              role="presentation"
+            />
+          </div>
+          <div class="stat-item">
+            <div class="stat-content">
+              <p class="stat-value" id="word-count">00</p>
+              <p class="stat-label">Word Count</p>
+            </div>
+            <img
+              src="./assets/images/pattern-word-count.svg"
+              alt=""
+              role="presentation"
+            />
+          </div>
+          <div class="stat-item">
+            <div class="stat-content">
+              <p class="stat-value" id="sentence-count">00</p>
+              <p class="stat-label">Sentence Count</p>
+            </div>
+            <img
+              src="./assets/images/pattern-sentence-count.svg"
+              alt=""
+              role="presentation"
+            />
+          </div>
+        </div>
 
-<main class="main-container">
-    <div class="wrapper">
-      <h1>Analyze your characters <br> in real-time.</h1>
-      <div class="character-counter">
-        <input id="text-input" placeholder="Start typing to count characters...(or paste your text here)" rows="10"></textarea>
-        <div class="checkboxes">
-          <input type="checkbox" id="exclude-space">
-          <label for="exclude-space"> Exclude Spaces</label>
-          <input type="checkbox" id="character-limit">
-          <label for="character-limit"> Set Character Limit</label> 
+        <div
+          class="count-container"
+          id="letter-density-container"
+          aria-live="polite"
+        >
+          <h2>Letter Density</h2>
+          <p id="letter-density-message">
+            No characters found. Start typing to see letter density.
+          </p>
         </div>
       </div>
+    </main>
 
-       <div class="stats">
-          <div class="stat-item-1">
-            <div class="stat-content">
-              <p class="stat-value" id="char-count">00</p>
-              <p class="stat-label">Total Characters</p>
-            </div>
-            <img src="./assets/images/pattern-character-count.svg" alt="">
-          </div>
-          <div class="stat-item-2">
-            <div class="stat-content">
-              <p class="stat-value" id="char-count">00</p>
-              <p class="stat-label">Total Characters</p>
-            </div>
-            <img src="./assets/images/pattern-word-count.svg" alt="">
-          </div>
-          <div class="stat-item-3">
-            <div class="stat-content">
-              <p class="stat-value" id="char-count">00</p>
-              <p class="stat-label">Total Characters</p>
-            </div>
-            <img src="./assets/images/pattern-sentence-count.svg" alt="">
-          </div>
-        </div>
-    </div>
-  </main>
-
-  <!-- <script src="./js/script.js"></script> -->
-</body>
+    <!-- script for handling theme toggle and character counting -->
+    <script src="./js/script.js"></script>
+  </body>
 </html>
