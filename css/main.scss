@@ -6,6 +6,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "DM Sans";
   src: url("../assets/fonts/DM_Sans/static/DMSans-SemiBold.ttf") format("truetype");
@@ -13,12 +14,14 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "DM Sans";
   src: url("../assets/fonts/DM_Sans/static/DMSans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
+
 /* declaration of CSS variables for light and dark themes */
 :root {
   --bg-color: #f5f5f5;
@@ -50,11 +53,14 @@
   background-image: url("../assets/images/bg-dark-theme.png");
 }
 
-#theme-toggle:checked ~ header .logo img {
-  content: url("../assets/images/logo-dark-theme.svg");
-}
-#theme-toggle:checked ~ header .theme-toggler img {
-  content: url("../assets/images/icon-sun.svg");
+#theme-toggle:checked ~ header {
+  .logo img {
+    content: url("../assets/images/logo-dark-theme.svg");
+  }
+
+  .theme-toggler img {
+    content: url("../assets/images/icon-sun.svg");
+  }
 }
 
 /* Universal styles for all elements */
@@ -97,17 +103,20 @@ nav {
 
 .character-counter {
   border-radius: 16px;
-}
-.character-counter h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
 }
 
-.logo img {
-  height: 2.5rem;
-  width: auto;
+.logo {
+  img {
+    height: 2.5rem;
+    width: auto;
+  }
 }
 
 .theme-toggler {
@@ -120,13 +129,15 @@ nav {
   justify-content: center;
   border-radius: 8px;
   transition: transform 0.2s ease;
-}
-.theme-toggler:hover {
-  transform: scale(1.05);
-}
-.theme-toggler img {
-  width: 1.5rem;
-  height: 1.5rem;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
 
 .wrapper {
@@ -139,20 +150,22 @@ nav {
   gap: 1rem;
   margin: 1rem auto;
   justify-content: space-between;
-}
-.checkboxes label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-.checkboxes input[type=checkbox] {
-  width: 1.125rem;
-  height: 1.125rem;
-  cursor: pointer;
-  accent-color: var(--text-color);
-  background-color: var(--checkbox-bg);
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  input[type="checkbox"] {
+    width: 1.125rem;
+    height: 1.125rem;
+    cursor: pointer;
+    accent-color: var(--text-color);
+    background-color: var(--checkbox-bg);
+  }
 }
 
 .options {
@@ -171,12 +184,14 @@ nav {
   font-size: 1rem;
   color: var(--text-color);
   transition: border-color 0.3s ease;
-}
-#text-input:focus {
-  outline: none;
-}
-#text-input:focus-visible {
-  border-color: var(--text-color);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    border-color: var(--text-color);
+  }
 }
 
 .stats {
@@ -194,21 +209,25 @@ nav {
   border-radius: 8px;
   justify-content: space-between;
   overflow: hidden;
-}
-.stat-item img {
-  width: 9.4rem;
-  height: 150px;
-  transform: scale(var(--stat-image-scale));
-  margin-left: var(--stat-image-offset);
-}
-.stat-item:nth-child(1) {
-  background-color: var(--stat-purple);
-}
-.stat-item:nth-child(2) {
-  background-color: var(--stat-orange);
-}
-.stat-item:nth-child(3) {
-  background-color: var(--stat-coral);
+
+  img {
+    width: 9.4rem;
+    height: 150px;
+    transform: scale(var(--stat-image-scale));
+    margin-left: var(--stat-image-offset);
+  }
+
+  &:nth-child(1) {
+    background-color: var(--stat-purple);
+  }
+
+  &:nth-child(2) {
+    background-color: var(--stat-orange);
+  }
+
+  &:nth-child(3) {
+    background-color: var(--stat-coral);
+  }
 }
 
 .stat-content {
@@ -231,10 +250,11 @@ nav {
 
 .count-container {
   margin-top: 2rem;
-}
-.count-container h2 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
 }
 
 #letter-density-message {
@@ -281,48 +301,65 @@ textarea {
 
 /* Responsive styles for different screen sizes */
 @media (max-width: 1024px) {
-  .stat-item img {
-    width: 120px;
-    height: 120px;
-    margin-left: 2rem;
+  .stat-item {
+    img {
+      width: 120px;
+      height: 120px;
+      margin-left: 2rem;
+    }
   }
+
   .stat-value {
     font-size: 3.5rem;
   }
 }
+
 @media (max-width: 768px) {
-  .character-counter h1 {
-    font-size: 2rem;
+  .character-counter {
+    h1 {
+      font-size: 2rem;
+    }
   }
+
   .stats {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
-  .stat-item img {
-    width: 100px;
-    height: 100px;
-    margin-left: 1rem;
+
+  .stat-item {
+    img {
+      width: 100px;
+      height: 100px;
+      margin-left: 1rem;
+    }
   }
+
   .stat-value {
     font-size: 2.5rem;
   }
+
   .checkboxes {
     flex-direction: column;
     align-items: flex-start;
   }
 }
+
 @media (max-width: 480px) {
-  .character-counter h1 {
-    font-size: 1.5rem;
+  .character-counter {
+    h1 {
+      font-size: 1.5rem;
+    }
   }
+
   .stats {
     grid-template-columns: 1fr;
   }
+
   .stat-value {
     font-size: 2rem;
   }
+
   .options {
     flex-direction: column;
   }
 }
-
