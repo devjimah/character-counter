@@ -65,6 +65,7 @@
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Body and layout styles */
 body {
   font-family: "DM Sans", sans-serif;
   background-color: var(--bg-color);
@@ -75,6 +76,7 @@ body {
   transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
+/* Main container and header styles */
 .main-container {
   min-height: 100vh;
   padding: 1rem;
@@ -95,6 +97,7 @@ nav {
   align-items: center;
 }
 
+/* Character counter title styles */
 .character-counter {
   border-radius: 16px;
 }
@@ -105,11 +108,13 @@ nav {
   text-align: center;
 }
 
+/* Logo styles */
 .logo img {
   height: 2.5rem;
   width: auto;
 }
 
+/* Theme toggler styles */
 .theme-toggler {
   background-color: var(--toggle-bg);
   border: none;
@@ -129,11 +134,13 @@ nav {
   height: 1.5rem;
 }
 
+/* Wrapper styles */
 .wrapper {
   max-width: 1200px;
   margin: auto;
 }
 
+/* Checkbox styles */
 .checkboxes {
   display: flex;
   gap: 1rem;
@@ -155,11 +162,13 @@ nav {
   background-color: var(--checkbox-bg);
 }
 
+/* Options container styles */
 .options {
   display: flex;
   gap: 1rem;
 }
 
+/* Text input area styles */
 #text-input {
   width: 100%;
   min-height: 200px;
