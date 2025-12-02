@@ -277,11 +277,16 @@ textarea {
 }
 
 .progress-bar {
-  width: 90%;
+  flex-grow: 1;
+  margin: 0 1rem;
   height: 10px;
   background-color: var(--border-color);
   border-radius: 8px;
   overflow: hidden;
+}
+
+.letter-percentage {
+  white-space: nowrap;
 }
 
 .progress-fill {
@@ -321,6 +326,9 @@ textarea {
   .checkboxes {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .progress-bar {
+    max-width: 60%;
   }
 }
 @media (max-width: 480px) {
